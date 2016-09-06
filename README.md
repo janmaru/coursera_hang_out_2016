@@ -1,7 +1,7 @@
 # Coursera HangOut Settembre 2016
  
-![coursera logo][coursera.jpeg]
-![f# sharp italia][fsharp.jpeg]
+![coursera logo][/coursera.jpeg]
+![f# sharp italia][/fsharp.jpeg]
  
 Partendo dal corso Functional Programming Principles in Scala https://www.coursera.org/learn/progfun1 qui viene sviluppata una semplice applicazione web che utilizza un engine ocr per la lettura di testi in immagini.
 
