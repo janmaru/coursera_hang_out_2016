@@ -18,7 +18,7 @@ Le slide della presentazione sono qui:
   http://www.slideshare.net/sorrentmutie/programmazione-funzionale-per-tutti-65736854
   
   Sessione di Mauro Ghiani:
-  [slides](/slide.png)
+  ![slides](/slide.png)
   - https://docs.google.com/presentation/d/1ClYiawRVaQqC64-8z9l-h5HXqsIEoQWdFwn3NUGotAo/edit#slide=id.p4
   - https://docs.google.com/presentation/d/1iG8IKi6li-QXkW3Jcr-eNGlVfFzZrkit-q5mEcoP7jg/edit#slide=id.gcb9a0b074_1_0
   
