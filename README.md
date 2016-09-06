@@ -26,9 +26,10 @@ Le slide della presentazione sono qui:
   https://fsharpforfunandprofit.com/posts/recipe-part2/
   
   Il progetto è stato sviluppato da F# Italia:
-  ![f# sharp italia](/fsharp.jpeg)
   
-  Ci puoi trovare su meetup, qui:
+  Ci puoi trovare sulla piattaforma meetup, qui:
   https://www.meetup.com/it-IT/FSharp-Italia/
+  
+    ![f# sharp italia](/fsharp.jpeg)
   
   
