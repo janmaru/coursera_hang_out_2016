@@ -4,12 +4,34 @@ open System.Drawing
 open System.Text.RegularExpressions
 open System.IO
 open ImageProcessor
+open ImageProcessor.Imaging.Filters.Photo
+open System.Drawing.Imaging
 
 open Tesseract
 
-open ImageMagick
- 
 module OCR =
+    let quality = 70 
+    let convertiImmagineBiancoNero2(file_img:string) =
+        let photoBytes = File.ReadAllBytes(file_img)
+        use inStream = new MemoryStream(photoBytes)
+        use imageFactory = new ImageFactory() 
+        use outStream = new MemoryStream()
+        let imf = imageFactory.Load(inStream)
+                    .Filter(MatrixFilters.BlackWhite)  
+                    .Quality(quality)     
+                    .Save(outStream) 
+        Image.FromStream(outStream)
+
+    let convertiImmagineGrigio(file_img:string) =
+        let photoBytes = File.ReadAllBytes(file_img)
+        use inStream = new MemoryStream(photoBytes)
+        use imageFactory = new ImageFactory() 
+        use outStream = new MemoryStream()
+        let imf = imageFactory.Load(inStream)
+                    .Quality(quality)
+                    .Tint(Color.FromArgb(255, 100, 100, 100))
+                    .Save(outStream) 
+        Image.FromStream(outStream)
 
     let convertiImmagineBiancoNero(file_img:string) =
         let photoBytes = File.ReadAllBytes(file_img)
@@ -17,6 +39,7 @@ module OCR =
         use outStream = new MemoryStream()
         use imageFactory = new ImageFactory() 
         let imf = imageFactory.Load(inStream)
+                    .Quality(quality)
                     .Contrast(100)
                     .Brightness(0)
                     .Save(outStream) 
@@ -30,19 +53,6 @@ module OCR =
         // Result
         (page.GetText().TrimEnd('\r','\n'), page.GetMeanConfidence())
 
-//    let estraiTestodaImmagine2 (img:Image) = 
-//        let original = new Bitmap(img)
-//        // Use ImageMagick to process image before OCR
-//        // 
-//        use img = new MagickImage(original)
-//        let cleaner = TextCleanerScript()
-//        let cleaned = cleaner.Execute(img).ToBitmap()
-//
-//        use engine = new TesseractEngine(@"./tessdata", "eng", EngineMode.Default)
-//        use local_img = PixConverter.ToPix cleaned
-//        use page = engine.Process local_img
-//        // Result
-//        (page.GetText().TrimEnd('\r','\n'), page.GetMeanConfidence())
 
     let filterByConfidence (testo:string, conf:float32) =
         if (conf > 0.51f) then testo else String.Empty

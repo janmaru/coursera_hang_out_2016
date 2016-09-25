@@ -16,7 +16,7 @@ type App() as this =
         this.Get.["/"] <- fun _ -> this.Response.AsFile("index.html", "text/html") :> obj
         this.Post.["/uploads"] <- fun _ -> 
             //now we use the bind function from the railway pattern library
-            let readTextinImages' = (bind Domain.readTextinImages)
+            let readTextinImages' = (bind Domain.readTextinImages2)
             let result = Domain.uploadImages >> readTextinImages' 
             let result' = result this.Request.Files
 //            let a = match result' with

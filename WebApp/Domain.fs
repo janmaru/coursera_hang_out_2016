@@ -54,7 +54,7 @@ module Domain =
         try
             let rd = [for f in files do
                         let filename = Path.Combine(__UPLOAD__, f) 
-                        use image =  OCR.convertiImmagineBiancoNero(filename)
+                        use image =  OCR.convertiImmagineBiancoNero2(filename)
                         yield (OCR.estraiTestodaImmagine(image),f)
                         ] 
             Success rd
