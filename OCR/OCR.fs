@@ -11,7 +11,7 @@ open Tesseract
 
 module OCR =
     let quality = 70 
-    let convertiImmagineBiancoNero2(file_img:string) =
+    let convertiImmagineBiancoNeroFilter(file_img:string) =
         let photoBytes = File.ReadAllBytes(file_img)
         use inStream = new MemoryStream(photoBytes)
         use imageFactory = new ImageFactory() 
@@ -22,7 +22,7 @@ module OCR =
                     .Save(outStream) 
         Image.FromStream(outStream)
 
-    let convertiImmagineGrigio(file_img:string) =
+    let convertiImmagineGrigioTint(file_img:string) =
         let photoBytes = File.ReadAllBytes(file_img)
         use inStream = new MemoryStream(photoBytes)
         use imageFactory = new ImageFactory() 
@@ -33,7 +33,7 @@ module OCR =
                     .Save(outStream) 
         Image.FromStream(outStream)
 
-    let convertiImmagineBiancoNero(file_img:string) =
+    let convertiImmagineBiancoNeroContrast(file_img:string) =
         let photoBytes = File.ReadAllBytes(file_img)
         use inStream = new MemoryStream(photoBytes)
         use outStream = new MemoryStream()
